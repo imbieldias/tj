@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Sentence from "./components/Sentence";
+import sentences from "./data";
 
 function App() {
+  const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
+  const [showNextButton, setShowNextButton] = useState(false);
+
+  const handleAnswer = (isCorrect) => {
+    if (isCorrect) {
+      setShowNextButton(true);
+    } else {
+      setShowNextButton(false);
+    }
+  };
+
+  const handleNextQuestion = () => {
+    const nextIndex = currentSentenceIndex + 1;
+    if (nextIndex < sentences.length) {
+      setCurrentSentenceIndex(nextIndex);
+      setShowNextButton(false);
+    } else {
+      alert(`Jogo terminado!`);
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Jogo de Completar Frases - Crimes Contra a Fé Pública</h1>
+      {currentSentenceIndex < sentences.length && (
+        <>
+          <Sentence
+            key={currentSentenceIndex}
+            sentence={sentences[currentSentenceIndex]}
+            onAnswer={handleAnswer}
+          />
+          {showNextButton && (
+            <button onClick={handleNextQuestion}>Próxima Pergunta</button>
+          )}
+        </>
+      )}
     </div>
   );
 }

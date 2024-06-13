@@ -1,0 +1,101 @@
+/* Global styles */
+@keyframes borderAnimation {
+  0% {
+    border-color: #fff; /* Azul claro */
+  }
+  100% {
+    border-color: #1e78ff; /* Azul escuro */
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.drop-area {
+  position: relative;
+  display: inline-block;
+  min-width: 50px;
+  min-height: 0.6em;
+  padding: 0.2em;
+  border: none;
+  cursor: pointer;
+  vertical-align: baseline;
+  border: 1px solid transparent;
+  /* border-bottom: 1px solid #fff; */
+  color: #ff831e;
+  text-align: center;
+}
+
+.drop-area.wrong-place {
+  background-color: #f7cd12;
+  color: #746c03;
+}
+
+.option {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 3px;
+  background-color: #444;
+  cursor: pointer;
+}
+
+.floating-answer {
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 2px 6px;
+  z-index: 1; /* Garante que a resposta flutuante esteja acima do conteúdo */
+}
+
+.options {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.incorrect-feedback {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #1e78ff;
+  color: #fff;
+}
+
+.drop-area.selected {
+  /* background-color: #e6e6e6; Cor de fundo quando selecionado */
+  border-color: #7c7c7c; /* Cor da borda quando selecionado */
+}
+
+.drop-area,
+.option {
+  user-select: none;
+  /* Outras propriedades de estilo aqui */
+}
+
+.drop-area.selected {
+  border: 1px solid transparent; /* Começa com uma borda transparente */
+  animation: borderAnimation 0.5s infinite alternate; /* Animar por 5 segundos, alternando */
+}
+
+.correct {
+  background-color: #c8e6df; /* Verde claro */
+  color: #00806b;
+  border: 1px solid #141414;
+}
+
+.incorrect {
+  background-color: #f55f6e; /* Vermelho claro */
+  color: #800101;
+  border: 1px solid #141414;
+}
