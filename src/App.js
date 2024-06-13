@@ -3,7 +3,9 @@ import Sentence from "./components/Sentence";
 import sentences from "./data";
 
 function App() {
-  const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
+  const [currentSentenceIndex, setCurrentSentenceIndex] = useState(
+    Math.floor(Math.random() * sentences.length)
+  );
   const [showNextButton, setShowNextButton] = useState(false);
 
   const handleAnswer = (isCorrect) => {
@@ -15,13 +17,9 @@ function App() {
   };
 
   const handleNextQuestion = () => {
-    const nextIndex = currentSentenceIndex + 1;
-    if (nextIndex < sentences.length) {
-      setCurrentSentenceIndex(nextIndex);
-      setShowNextButton(false);
-    } else {
-      alert(`Jogo terminado!`);
-    }
+    const nextIndex = Math.floor(Math.random() * sentences.length);
+    setCurrentSentenceIndex(nextIndex);
+    setShowNextButton(false);
   };
 
   return (
