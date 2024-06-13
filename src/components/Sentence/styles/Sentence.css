@@ -1,10 +1,10 @@
 /* Global styles */
 @keyframes borderAnimation {
   0% {
-    border-color: #fff; /* Azul claro */
+    border-color: var(--orange); /* Azul claro */
   }
   100% {
-    border-color: #1e78ff; /* Azul escuro */
+    border-color: #141414; /* Azul escuro */
   }
 }
 
@@ -17,37 +17,30 @@
 .drop-area {
   position: relative;
   display: inline-block;
-  min-width: 50px;
-  min-height: 0.6em;
+  min-width: 0;
+  min-height: 19px;
   padding: 0.2em;
   border: none;
   cursor: pointer;
-  vertical-align: baseline;
+  vertical-align: middle;
   border: 1px solid transparent;
   /* border-bottom: 1px solid #fff; */
-  color: #ff831e;
+  color: var(--orange);
   text-align: center;
+  border-radius: 0.5em;
 }
 
 .drop-area.wrong-place {
-  background-color: #f7cd12;
-  color: #746c03;
+  color: #f3e410;
 }
 
 .option {
   display: inline-block;
   padding: 5px 10px;
   margin: 0 3px;
-  background-color: #444;
+  background-color: #383838;
   cursor: pointer;
-}
-
-.floating-answer {
-  position: absolute;
-  background-color: #fff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  padding: 2px 6px;
-  z-index: 1; /* Garante que a resposta flutuante esteja acima do conteúdo */
+  border-radius: 0.5em;
 }
 
 .options {
@@ -58,8 +51,10 @@
 }
 
 .incorrect-feedback {
-  color: #ff0000;
-  font-weight: bold;
+  color: var(--red);
+  font-size: 0.8em;
+  font-style: italic;
+  /* font-weight: bold; */
 }
 
 button {
@@ -68,13 +63,15 @@ button {
   font-size: 16px;
   cursor: pointer;
   border: none;
-  background-color: #1e78ff;
+  background-color: var(--orange);
   color: #fff;
+  border-radius: 0.5em;
+  transition: 0.5s;
 }
 
-.drop-area.selected {
-  /* background-color: #e6e6e6; Cor de fundo quando selecionado */
-  border-color: #7c7c7c; /* Cor da borda quando selecionado */
+button:disabled {
+  opacity: 0.1;
+  filter: grayscale();
 }
 
 .drop-area,
@@ -83,19 +80,25 @@ button {
   /* Outras propriedades de estilo aqui */
 }
 
+.drop-area.--empty {
+  border-radius: 0;
+  min-width: 50px;
+}
+
 .drop-area.selected {
+  border-radius: 0.5em;
   border: 1px solid transparent; /* Começa com uma borda transparente */
   animation: borderAnimation 0.5s infinite alternate; /* Animar por 5 segundos, alternando */
 }
 
 .correct {
-  background-color: #c8e6df; /* Verde claro */
-  color: #00806b;
+  /* background-color: #c8e6df; */
+  color: #12e2b5;
   border: 1px solid #141414;
 }
 
 .incorrect {
-  background-color: #f55f6e; /* Vermelho claro */
-  color: #800101;
+  /* background-color: #f55f6e; */
+  color: var(--red);
   border: 1px solid #141414;
 }

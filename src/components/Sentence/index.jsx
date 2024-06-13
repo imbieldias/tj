@@ -10,6 +10,10 @@ function Sentence({ sentence, onAnswer }) {
   const [answerSubmitted, setAnswerSubmitted] = useState(false); // Novo estado para controlar se a resposta foi submetida
   const [shuffledOptions, setShuffledOptions] = useState([]);
 
+  console.log(userAnswers);
+
+  const buttonDisabled = userAnswers.some((a) => a.length <= 0);
+
   useEffect(() => {
     // Embaralhar as opções de resposta ao mudar a frase
     setShuffledOptions(shuffleArray(sentence.options));
@@ -69,6 +73,10 @@ function Sentence({ sentence, onAnswer }) {
     return "";
   };
 
+  const hasBorder = (index) => {
+    return userAnswers[index].length > 0 ? "" : " --empty";
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit} className="main">
@@ -79,8 +87,10 @@ function Sentence({ sentence, onAnswer }) {
               {index < blanks.length - 1 && (
                 <span
                   className={`drop-area ${getClassName(index)} ${
-                    index === selectedBlankIndex ? "selected" : ""
-                  }`}
+                    index === selectedBlankIndex && !answeredCorrectly
+                      ? "selected"
+                      : ""
+                  }${hasBorder(index)}`}
                   onClick={() => handleBlankClick(index)}
                 >
                   {userAnswers[index]}
@@ -100,7 +110,11 @@ function Sentence({ sentence, onAnswer }) {
             </div>
           ))}
         </div>
-        {!answeredCorrectly && <button type="submit">Responder</button>}
+        {!answeredCorrectly && (
+          <button disabled={buttonDisabled} type="submit">
+            Responder
+          </button>
+        )}
       </form>
       {!answeredCorrectly && answerSubmitted && (
         <p className="incorrect-feedback">

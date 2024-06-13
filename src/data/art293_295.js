@@ -53,12 +53,12 @@ const art293_295 = [
       "falsificados",
       "alterados",
       "conscientemente",
+      "falsificados",
     ],
     options: [
       "6 meses a 2 anos",
       "6 meses a 3 anos",
       "6 meses a 2 ano",
-      "6 meses a 2 anos",
       "falsificados",
       "falsificadoss",
       "falsifikados",
@@ -298,7 +298,7 @@ const art293_295 = [
       "os meios para o crime",
       "petrechos",
       "294",
-      "anulam"
+      "anulam",
     ],
     options: [
       "obstáculo",
@@ -329,7 +329,7 @@ const art293_295 = [
       "295",
       "296",
       "anulam",
-      "não interferem"
+      "não interferem",
     ],
   },
 ];

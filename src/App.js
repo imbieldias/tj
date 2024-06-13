@@ -24,19 +24,21 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Jogo de Completar Frases - Crimes Contra a Fé Pública</h1>
-      {currentSentenceIndex < sentences.length && (
-        <>
-          <Sentence
-            key={currentSentenceIndex}
-            sentence={sentences[currentSentenceIndex]}
-            onAnswer={handleAnswer}
-          />
-          {showNextButton && (
-            <button onClick={handleNextQuestion}>Próxima Pergunta</button>
-          )}
-        </>
-      )}
+      <div>
+        <h1>Crimes Contra a Fé Pública</h1>
+        {currentSentenceIndex < sentences.length && (
+          <>
+            <Sentence
+              key={currentSentenceIndex}
+              sentence={sentences[currentSentenceIndex]}
+              onAnswer={handleAnswer}
+            />
+            {showNextButton && (
+              <button onClick={handleNextQuestion}>Avançar</button>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 }
