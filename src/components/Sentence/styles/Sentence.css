@@ -28,6 +28,7 @@
   color: var(--orange);
   text-align: center;
   border-radius: 0.5em;
+  /* border-radius: 25px; */
 }
 
 .drop-area.wrong-place {
@@ -40,6 +41,7 @@
   margin: 0 3px;
   background-color: #383838;
   cursor: pointer;
+  /* border-radius: 25px; */
   border-radius: 0.5em;
 }
 
@@ -81,12 +83,10 @@ button:disabled {
 }
 
 .drop-area.--empty {
-  border-radius: 0;
   min-width: 50px;
 }
 
 .drop-area.selected {
-  border-radius: 0.5em;
   border: 1px solid transparent; /* Começa com uma borda transparente */
   animation: borderAnimation 0.5s infinite alternate; /* Animar por 5 segundos, alternando */
 }

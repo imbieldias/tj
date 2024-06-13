@@ -220,7 +220,7 @@ const art293_295 = [
     ],
   },
   {
-    text: "Se quem falsifica o documento e também o usa, ele será punido por ____.",
+    text: "Se quem falsificar o documento também o usar, ele será punido por ____.",
     answer: ["falsificação apenas"],
     options: [
       "falsificação apenas",
