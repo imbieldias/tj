@@ -1,3 +1,7 @@
+import art293 from "./art293";
+import art294 from "./art294";
+import art295 from "./art295";
+
 const art293_295 = [
   {
     text: "Fé Pública refere-se à ____ que as pessoas têm no ____ e nas ____ entre si.",
@@ -333,5 +337,7 @@ const art293_295 = [
     ],
   },
 ];
+
+export const art293_295Array = [...art293, ...art294, ...art295];
 
 export default art293_295;

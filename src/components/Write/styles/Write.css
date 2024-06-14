@@ -1,0 +1,77 @@
+.write {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.erase {
+  background-color: #212121;
+  color: var(--orange);
+  padding: 30px;
+}
+
+.title {
+  font-weight: 800;
+}
+
+.sentence {
+  color: var(--orange);
+}
+
+.two-words {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 200px;
+  gap: 10px;
+}
+
+.word {
+  font-size: 1.3em;
+}
+
+.word:first-child {
+  background-color: var(--orange);
+}
+
+.word:last-child {
+  background-color: #e66e3f;
+}
+
+.current-sentence {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #212121;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.current-sentence h2 {
+  color: var(--orange);
+}
+
+.current-sentence-text {
+  padding: 20px;
+  text-align: center;
+}
+
+.close {
+  background: none;
+  color: var(--orange);
+  font-size: 2em;
+}
+
+.timer {
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+  border-radius: 0 25px 25px 0;
+}
